@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+    confluence:
+        image: confluence:0.0.2
+        hostname: confluence
+        container_name: confluence
+        networks:
+            - confluence_net
+        ports:
+            - "80:8090"
+        volumes:
+            - confluence_data:/var/atlassian/confluence
+        labels:
+            com.fw.description: "Atlassian Confluence"
+            com.fw.service: "confluence"
+
+    postgresql:
+        image: postgres
+        hostname: postgres_confluence
+        container_name: postgres_confluence
+        networks:
+            - confluence_net
+        volumes:
+            - postgresql_data:/var/lib/postgresql/data
+        environment:
+            - 'POSTGRES_PASSWORD=hotdog'
+            - 'POSTGRES_USER=confluencedb'
+            - 'POSTGRES_DB=confluencedb'
+        labels:
+            com.fw.description: "PostgreSQL Database Server"
+            com.fw.service: "postgresql"
+
+volumes:
+    confluence_data:
+        external: false
+    postgresql_data:
+        external: false
+
+networks:
+    confluence_net:
+        driver: bridge
