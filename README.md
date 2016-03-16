@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/anonymuse/docker_confluence.svg?style=svg)](https://circleci.com/gh/anonymuse/docker_confluence)
+
 # Confluence in Docker
 
 ## Getting started
