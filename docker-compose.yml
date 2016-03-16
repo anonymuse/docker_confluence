@@ -11,6 +11,9 @@ services:
             - "80:8090"
         volumes:
             - confluence_data:/var/atlassian/confluence
+            - confluence_logs:/opt/atlassian/confluence/logs
+        environment:
+            - 'CONFLUENCE_ENV=development'
         labels:
             com.fw.description: "Atlassian Confluence"
             com.fw.service: "confluence"
@@ -33,6 +36,8 @@ services:
 
 volumes:
     confluence_data:
+        external: false
+    confluence_logs:
         external: false
     postgresql_data:
         external: false
