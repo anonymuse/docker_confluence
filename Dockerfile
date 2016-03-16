@@ -7,7 +7,6 @@ ENV CONF_HOME=/var/atlassian/confluence \
     ATLN_URL=http://www.atlassian.com/software/confluence/downloads/binary \
     MYSQL_URL=http://dev.mysql.com/get/Downloads/Connector-J \
     MYSQL_VERSION=5.1.38
-    CONFLUENCE_ENVIRONMENT=production
 
 # Install Atlassian Confluence and helper tools and setup initial home
 # directory structure.
